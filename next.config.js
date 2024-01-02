@@ -2,6 +2,7 @@ const { i18n } = require("./next-i18next.config");
 const withPWA = require("next-pwa");
 const withFonts = require("next-fonts");
 const runtimeCaching = require("next-pwa/cache");
+const webpack = require("webpack");
 module.exports = withPWA(
   withFonts({
     pwa: {
@@ -9,6 +10,7 @@ module.exports = withPWA(
       dest: "public",
       runtimeCaching,
     },
+    hashFunction: "xxhash64",
     i18n,
     images: {
       domains: [
